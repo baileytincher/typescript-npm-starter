@@ -26,7 +26,9 @@ const config: Configuration = {
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'source-map',
-  externals: [nodeExternals()],
+  // Type definitions are broke on webpack-node-externals
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  externals: [nodeExternals() as any],
 };
 
 export default config;
